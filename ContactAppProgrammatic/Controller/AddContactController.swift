@@ -18,13 +18,25 @@ class AddContactController : UIViewController {
     
     let nameTF: UITextField = {
         let textField = UITextField()
-        setUpTextField(textField, placeHolder: "name", keyboardType: UIKeyboardType.default)
+        setUpTextField(textField, placeHolder: "Name", keyboardType: UIKeyboardType.default)
+        return textField
+    }()
+    
+    let userNameTF : UITextField = {
+        let textField = UITextField()
+        setUpTextField(textField, placeHolder: "User Name", keyboardType: UIKeyboardType.default)
         return textField
     }()
     
     let phoneTF: UITextField = {
         let textField = UITextField()
-        setUpTextField(textField, placeHolder: "phone nummber", keyboardType: UIKeyboardType.numberPad)
+        setUpTextField(textField, placeHolder: "Phone Nummber", keyboardType: UIKeyboardType.numberPad)
+        return textField
+    }()
+    
+    let emailTF : UITextField = {
+        let textField = UITextField()
+        setUpTextField(textField, placeHolder: "Email Adress", keyboardType: UIKeyboardType.emailAddress)
         return textField
     }()
     
@@ -74,9 +86,17 @@ class AddContactController : UIViewController {
         nameTF.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         setUpTextFieldConstrainst(textField: nameTF)
         
+        view.addSubview(userNameTF)
+        userNameTF.topAnchor.constraint(equalTo: nameTF.bottomAnchor,constant: 10).isActive = true
+        setUpTextFieldConstrainst(textField: userNameTF)
+        
         view.addSubview(phoneTF)
-        phoneTF.topAnchor.constraint(equalTo: nameTF.bottomAnchor,constant: 10).isActive = true
+        phoneTF.topAnchor.constraint(equalTo: userNameTF.bottomAnchor, constant: 10).isActive = true
         setUpTextFieldConstrainst(textField: phoneTF)
+        
+        view.addSubview(emailTF)
+        emailTF.topAnchor.constraint(equalTo: phoneTF.bottomAnchor, constant: 10).isActive = true
+        setUpTextFieldConstrainst(textField: emailTF)
         
     }
 }
