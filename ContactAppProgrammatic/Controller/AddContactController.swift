@@ -56,6 +56,12 @@ class AddContactController : UIViewController {
     }
     
     // MARK: - SetUpViewConstraints
+    func setUpTextFieldConstrainst(textField: UITextField) {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
+        textField.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 45).isActive = true
+    }
     
     func setUpViewConstraints() {
         view.addSubview(titleLabel)
@@ -65,18 +71,12 @@ class AddContactController : UIViewController {
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         view.addSubview(nameTF)
-        nameTF.translatesAutoresizingMaskIntoConstraints = false
         nameTF.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        nameTF.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
-        nameTF.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
-        nameTF.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        setUpTextFieldConstrainst(textField: nameTF)
         
         view.addSubview(phoneTF)
-        phoneTF.translatesAutoresizingMaskIntoConstraints = false
         phoneTF.topAnchor.constraint(equalTo: nameTF.bottomAnchor,constant: 10).isActive = true
-        phoneTF.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
-        phoneTF.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
-        phoneTF.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        setUpTextFieldConstrainst(textField: phoneTF)
         
     }
 }
