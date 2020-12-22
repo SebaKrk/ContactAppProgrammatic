@@ -22,6 +22,12 @@ class AddContactController : UIViewController {
         return textField
     }()
     
+    let phoneTF: UITextField = {
+        let textField = UITextField()
+        setUpTextField(textField, placeHolder: "phone nummber", keyboardType: UIKeyboardType.numberPad)
+        return textField
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +35,17 @@ class AddContactController : UIViewController {
         view.backgroundColor = UIColor.systemGroupedBackground
         
         setUpBarButton()
+        setUpViewConstraints()
         
     }
-//    MARK: - SetUpBarButton
+    //    MARK: - SetUpBarButton
     
     func setUpBarButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleRightBarButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleLeftbarButton))
     }
     
-//    MARK: - OBJC Func
+    //    MARK: - OBJC Func
     
     @objc func handleRightBarButton(){
         print("done")
@@ -46,6 +53,31 @@ class AddContactController : UIViewController {
     @objc func handleLeftbarButton(){
         print("cancle")
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - SetUpViewConstraints
+    
+    func setUpViewConstraints() {
+        view.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor , constant: 100).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        view.addSubview(nameTF)
+        nameTF.translatesAutoresizingMaskIntoConstraints = false
+        nameTF.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        nameTF.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
+        nameTF.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
+        nameTF.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
+        view.addSubview(phoneTF)
+        phoneTF.translatesAutoresizingMaskIntoConstraints = false
+        phoneTF.topAnchor.constraint(equalTo: nameTF.bottomAnchor,constant: 10).isActive = true
+        phoneTF.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
+        phoneTF.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
+        phoneTF.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
     }
 }
 
