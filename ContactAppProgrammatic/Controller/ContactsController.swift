@@ -27,7 +27,13 @@ class ContactsController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(hanldeAddButton))
     }
     @objc func hanldeAddButton() {
-        print("add")
+        
+        let controller = AddContactController()
+        let rootVC = controller
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+        
     }
     
     //    MARK: - RegisterTableView
