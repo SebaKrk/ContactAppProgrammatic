@@ -29,6 +29,7 @@ class ContactsController: UITableViewController {
     @objc func hanldeAddButton() {
         
         let controller = AddContactController()
+        controller.delegate = self // protocol
         let rootVC = controller
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
@@ -53,6 +54,19 @@ class ContactsController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
+        cell.textLabel?.text = contacts[indexPath.row].name
+        
         return cell
     }
+}
+
+extension ContactsController: AddContactDelegate {  // protocol
+    func addContact(contact: Contact) {  
+        self.dismiss(animated: true) {
+            self.contacts.append(contact)
+            self.tableView.reloadData()
+        }
+    }
+    
+    
 }

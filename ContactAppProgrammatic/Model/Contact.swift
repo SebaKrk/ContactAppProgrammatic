@@ -8,5 +8,5 @@
 import UIKit
 
 struct Contact {
-    var Name: String
+    var name: String
 }

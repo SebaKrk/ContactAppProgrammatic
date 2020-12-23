@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol AddContactDelegate {  // protocol
+    func addContact(contact: Contact)
+}
+
 class AddContactController : UIViewController {
+    
+    var delegate: AddContactDelegate?  // protocol
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -40,7 +46,14 @@ class AddContactController : UIViewController {
         return textField
     }()
     
+    var sexSegmentControll : UISegmentedControl = {
+        let sex = ["♀","♂︎"]
+        let segment = UISegmentedControl(items: sex)
+        return segment
+    }()
     
+//    MARK: - VieDidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +73,11 @@ class AddContactController : UIViewController {
     //    MARK: - OBJC Func
     
     @objc func handleRightBarButton(){
-        print("done")
+        
+        let name = nameTF.text
+        
+        let contact = Contact(name: name!)
+        delegate?.addContact(contact: contact)  // protocol
     }
     @objc func handleLeftbarButton(){
         print("cancle")
@@ -72,7 +89,7 @@ class AddContactController : UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
         textField.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
     }
     
     func setUpViewConstraints() {
@@ -98,6 +115,13 @@ class AddContactController : UIViewController {
         emailTF.topAnchor.constraint(equalTo: phoneTF.bottomAnchor, constant: 10).isActive = true
         setUpTextFieldConstrainst(textField: emailTF)
         
+        view.addSubview(sexSegmentControll)
+        sexSegmentControll.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sexSegmentControll.topAnchor.constraint(equalTo: emailTF.bottomAnchor,constant: 10),
+            sexSegmentControll.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40),
+            sexSegmentControll.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40)
+        ])
     }
 }
 
