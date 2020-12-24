@@ -52,7 +52,17 @@ class AddContactController : UIViewController {
         return segment
     }()
     
+    let country = ["POL,GEF,GRB"]
+    
+    var countryPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.backgroundColor = .red
+        return picker
+    }()
+    
 //    MARK: - VieDidLoad
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +71,8 @@ class AddContactController : UIViewController {
         
         setUpBarButton()
         setUpViewConstraints()
-        
+        countryPicker.delegate = self
+        countryPicker.dataSource = self
     }
     //    MARK: - SetUpBarButton
     
@@ -122,6 +133,13 @@ class AddContactController : UIViewController {
             sexSegmentControll.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40),
             sexSegmentControll.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -40)
         ])
+        
+        view.addSubview(countryPicker)
+        countryPicker.translatesAutoresizingMaskIntoConstraints = false
+        countryPicker.topAnchor.constraint(equalTo: sexSegmentControll.bottomAnchor,constant: 10).isActive = true
+        countryPicker.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10).isActive = true
+        countryPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10).isActive = true
+        countryPicker.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 }
 
@@ -146,5 +164,26 @@ func setUpTextField(_ textField: UITextField, placeHolder: String, keyboardType:
     textField.layer.cornerRadius = 5
     textField.clearButtonMode = UITextField.ViewMode.whileEditing
     textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+    
+}
+
+// MARK: - PickerVIew
+
+extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+        return 3
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "test"
+
+    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let selectedRow =
+//    }
+    
     
 }
