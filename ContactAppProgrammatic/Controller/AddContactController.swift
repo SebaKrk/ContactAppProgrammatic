@@ -52,17 +52,15 @@ class AddContactController : UIViewController {
         return segment
     }()
     
-    let country = ["POL,GEF,GRB"]
+    let country = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
     
     var countryPicker: UIPickerView = {
         let picker = UIPickerView()
-        picker.backgroundColor = .red
         return picker
     }()
+
     
 //    MARK: - VieDidLoad
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,12 +172,13 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
 
-        return 3
+        return country.count
+        
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "test"
-
+        return country[row]
     }
 //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //        let selectedRow =
