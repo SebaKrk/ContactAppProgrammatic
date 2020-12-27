@@ -67,6 +67,5 @@ extension ContactsController: AddContactDelegate {  // protocol
             self.tableView.reloadData()
         }
     }
-    
-    
+
 }

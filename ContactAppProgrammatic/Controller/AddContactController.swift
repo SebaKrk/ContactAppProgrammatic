@@ -58,10 +58,10 @@ class AddContactController : UIViewController {
         let picker = UIPickerView()
         return picker
     }()
-
+    //    sumbit error
     
-//    MARK: - VieDidLoad
-
+    //    MARK: - VieDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,10 +83,17 @@ class AddContactController : UIViewController {
     
     @objc func handleRightBarButton(){
         
-        let name = nameTF.text
+        guard let name = nameTF.text, let lastName = userNameTF.text, let phone = phoneTF.text, let emial = emailTF.text
+        else {
+            print("Error")
+            return
+        }
         
-        let contact = Contact(name: name!)
-        delegate?.addContact(contact: contact)  // protocol
+        let contact = Contact(name: name, userName: lastName, phonr: phone, email: emial)
+        delegate?.addContact(contact: contact)
+        
+        print(contact)
+      
     }
     @objc func handleLeftbarButton(){
         print("cancle")
@@ -94,6 +101,7 @@ class AddContactController : UIViewController {
     }
     
     // MARK: - SetUpViewConstraints
+    
     func setUpTextFieldConstrainst(textField: UITextField) {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40).isActive = true
@@ -173,16 +181,18 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-
+        
         return country.count
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return country[row]
     }
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        let selectedRow =
-//    }
+    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    //        let selectedRow =
+    //
+    //    }
     
     
 }
+

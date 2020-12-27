@@ -19,3 +19,11 @@ class ContactsCell: UITableViewCell {
     }
 }
 
+
+// stworzyyc wyglad pokazywanego konataktu w tableView
+// ma wyswietlc od lewej obraz koboety / mezczyzny
+// imie naziwsko
+// adres mailowy
+// numer telefonu
+// po prawej wybrany kraj / narodowosc
+
