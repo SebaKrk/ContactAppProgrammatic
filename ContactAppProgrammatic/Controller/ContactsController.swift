@@ -16,6 +16,8 @@ class ContactsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         setUpBarbuttonItem()
         registerTableView()
         
@@ -41,6 +43,7 @@ class ContactsController: UITableViewController {
     
     func registerTableView() {
         tableView.register(ContactsCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 150
     }
     
     //    MARK: - TableView
