@@ -13,8 +13,8 @@ class ContactsCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 16
-        view.backgroundColor = .green
-        //        view.backgroundColor = UIColor.secondarySystemBackground
+        //        view.backgroundColor = .green
+        view.backgroundColor = UIColor.secondarySystemBackground
         view.clipsToBounds = true
         return view
     }()
@@ -24,7 +24,7 @@ class ContactsCell: UITableViewCell {
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 35
         image.clipsToBounds = true
-        image.backgroundColor = .red
+        image.backgroundColor = .white
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -32,8 +32,8 @@ class ContactsCell: UITableViewCell {
     let sexLabel : UILabel = {
         let label = UILabel()
         label.text = "Woman"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.backgroundColor = .red
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+//        label.backgroundColor = .red
         return label
     }()
     
@@ -41,7 +41,7 @@ class ContactsCell: UITableViewCell {
         let view = UIView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cyan
+//        view.backgroundColor = .cyan
         return view
     }()
     
@@ -49,7 +49,7 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "Name"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.backgroundColor = .red
+//        label.backgroundColor = .red
         return label
     }()
     
@@ -57,7 +57,7 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "LastNamew"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.backgroundColor = .red
+//        label.backgroundColor = .red
         return label
     }()
     
@@ -65,7 +65,7 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "999-333-222"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.backgroundColor = .red
+//        label.backgroundColor = .red
         return label
     }()
     
@@ -73,13 +73,13 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "name@email.com"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.backgroundColor = .red
+//        label.backgroundColor = .red
         return label
     }()
     
     let countryImage : UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .blue
+        let image = UIImageView(image: #imageLiteral(resourceName: "pl"))
+//        image.backgroundColor = .blue
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 20
         image.clipsToBounds = true

@@ -15,6 +15,7 @@ struct Contact {
     var sex : String
     var sexImageW = UIImage(named: "woman")
     var sexImageM = UIImage(named: "man")
+    var country : String
     
 //    var country: [String]
 }

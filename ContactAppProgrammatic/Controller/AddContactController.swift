@@ -67,12 +67,10 @@ class AddContactController : UIViewController {
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            print("♀ - women")
-            sexLabel.text = "♀ - women"
+            sexLabel.text = " ♀ women"
 
         case 1:
-            print("♂︎ - man")
-            sexLabel.text = "♂︎ - man"
+            sexLabel.text = " ♂︎ man"
 
         default:
             return
@@ -84,6 +82,11 @@ class AddContactController : UIViewController {
     var countryPicker: UIPickerView = {
         let picker = UIPickerView()
         return picker
+    }()
+    
+    var countryLabel : UILabel = {
+        let label = UILabel()
+        return label
     }()
     
     //    MARK: - VieDidLoad
@@ -119,13 +122,15 @@ class AddContactController : UIViewController {
                   let lastName = userNameTF.text,userNameTF.hasText,
                   let phone = phoneTF.text,phoneTF.hasText,
                   let emial = emailTF.text, emailTF.hasText,
-                  let sex = sexLabel.text
+                  let sex = sexLabel.text,
+                  let country = countryLabel.text
+                
             
             else {
                 throw SubmiError.fieldsCannotBeNull
             }
             
-            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial, sex: sex)
+            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial, sex: sex, country: country)
             delegate?.addContact(contact: contact)
             dismiss(animated: true)
             print(contact)
@@ -224,17 +229,17 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        
         return country.count
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return country[row]
     }
-    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    //        let selectedRow =
-    //
-    //    }
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            
+            countryLabel.text = country[row]
+    
+        }
     
     
 }
