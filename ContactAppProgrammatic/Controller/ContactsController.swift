@@ -43,7 +43,7 @@ class ContactsController: UITableViewController {
     
     func registerTableView() {
         tableView.register(ContactsCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.rowHeight = 150
+        tableView.rowHeight = 120
     }
     
     //    MARK: - TableView
