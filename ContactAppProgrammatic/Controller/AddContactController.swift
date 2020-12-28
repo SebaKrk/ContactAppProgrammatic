@@ -46,11 +46,38 @@ class AddContactController : UIViewController {
         return textField
     }()
     
+    var sexLabel : UILabel = {
+        let label = UILabel()
+        label.text = ""
+        return label
+    }()
+    
+    var sexImage : UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "man"))
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
     var sexSegmentControll : UISegmentedControl = {
         let sex = ["♀","♂︎"]
         let segment = UISegmentedControl(items: sex)
+        segment.addTarget(self, action: #selector(handleSegmentControl(_:) ), for: .valueChanged)
         return segment
     }()
+    
+    @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            print("♀ - women")
+            sexLabel.text = "♀ - women"
+
+        case 1:
+            print("♂︎ - man")
+            sexLabel.text = "♂︎ - man"
+
+        default:
+            return
+        }
+    }
     
     let country = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
     
@@ -58,7 +85,6 @@ class AddContactController : UIViewController {
         let picker = UIPickerView()
         return picker
     }()
-    //    sumbit error
     
     //    MARK: - VieDidLoad
     
@@ -92,12 +118,14 @@ class AddContactController : UIViewController {
             guard let name = nameTF.text,nameTF.hasText,
                   let lastName = userNameTF.text,userNameTF.hasText,
                   let phone = phoneTF.text,phoneTF.hasText,
-                  let emial = emailTF.text, emailTF.hasText
+                  let emial = emailTF.text, emailTF.hasText,
+                  let sex = sexLabel.text
+            
             else {
                 throw SubmiError.fieldsCannotBeNull
             }
             
-            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial)
+            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial, sex: sex)
             delegate?.addContact(contact: contact)
             dismiss(animated: true)
             print(contact)
@@ -109,11 +137,9 @@ class AddContactController : UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         }
-        
-        
     }
     @objc func handleLeftbarButton(){
-        print("cancle")
+        print("cancel")
         dismiss(animated: true, completion: nil)
     }
     

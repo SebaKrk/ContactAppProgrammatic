@@ -12,6 +12,9 @@ struct Contact {
     var userName: String
     var phone: String
     var email : String
-//    var sex : String
+    var sex : String
+    var sexImageW = UIImage(named: "woman")
+    var sexImageM = UIImage(named: "man")
+    
 //    var country: [String]
 }

@@ -14,13 +14,13 @@ class ContactsCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 16
         view.backgroundColor = .green
-//        view.backgroundColor = UIColor.secondarySystemBackground
+        //        view.backgroundColor = UIColor.secondarySystemBackground
         view.clipsToBounds = true
         return view
     }()
     
     let contactImage : UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 35
         image.clipsToBounds = true
@@ -85,7 +85,7 @@ class ContactsCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-//    MARK: INIT
+    //    MARK: INIT
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -101,11 +101,11 @@ class ContactsCell: UITableViewCell {
         lastNameLabel.text = res.userName
         phoneLabel.text = res.phone
         emialLabel.text = res.email
-        
+        sexLabel.text = res.sex
+        contactImage.image = res.sexImageM
     }
     
-    
-//    MARK: - SetUpConstraints
+    //    MARK: - SetUpConstraints
     
     func setUpConstraints() {
         addSubview(backgroundCard)
@@ -162,7 +162,7 @@ class ContactsCell: UITableViewCell {
         countryImage.trailingAnchor.constraint(equalTo: backgroundCard.trailingAnchor, constant: -5).isActive = true
         countryImage.widthAnchor.constraint(equalToConstant: 50).isActive = true
         countryImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
+        
     }
     
 }
