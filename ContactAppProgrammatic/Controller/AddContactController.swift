@@ -81,19 +81,36 @@ class AddContactController : UIViewController {
     
     //    MARK: - OBJC Func
     
-    @objc func handleRightBarButton(){
+    enum SubmiError:Error {
+        case fieldsCannotBeNull
+    }
+    
+    @objc func handleRightBarButton()
+    {
         
-        guard let name = nameTF.text, let lastName = userNameTF.text, let phone = phoneTF.text, let emial = emailTF.text
-        else {
-            print("Error")
-            return
+        do {
+            guard let name = nameTF.text,nameTF.hasText,
+                  let lastName = userNameTF.text,userNameTF.hasText,
+                  let phone = phoneTF.text,phoneTF.hasText,
+                  let emial = emailTF.text, emailTF.hasText
+            else {
+                throw SubmiError.fieldsCannotBeNull
+            }
+            
+            let contact = Contact(name: name, userName: lastName, phonr: phone, email: emial)
+            delegate?.addContact(contact: contact)
+            dismiss(animated: true)
+            print(contact)
+            
+        } catch {
+            let alertController = UIAlertController(title: "Error", message: "Please fill the details correctly", preferredStyle: .alert) // or .actionSheet
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         
-        let contact = Contact(name: name, userName: lastName, phonr: phone, email: emial)
-        delegate?.addContact(contact: contact)
         
-        print(contact)
-      
     }
     @objc func handleLeftbarButton(){
         print("cancle")

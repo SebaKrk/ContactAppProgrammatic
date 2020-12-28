@@ -62,10 +62,10 @@ class ContactsController: UITableViewController {
 
 extension ContactsController: AddContactDelegate {  // protocol
     func addContact(contact: Contact) {  
-        self.dismiss(animated: true) {
+
             self.contacts.append(contact)
             self.tableView.reloadData()
-        }
+
     }
 
 }
