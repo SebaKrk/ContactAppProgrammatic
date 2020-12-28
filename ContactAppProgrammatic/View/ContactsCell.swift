@@ -85,7 +85,7 @@ class ContactsCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-    
+//    MARK: INIT
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -95,6 +95,16 @@ class ContactsCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func set(res : Contact) {
+        nameLabel.text = res.name
+        lastNameLabel.text = res.userName
+        phoneLabel.text = res.phone
+        emialLabel.text = res.email
+        
+    }
+    
+    
 //    MARK: - SetUpConstraints
     
     func setUpConstraints() {

@@ -16,8 +16,6 @@ class ContactsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         setUpBarbuttonItem()
         registerTableView()
         
@@ -55,9 +53,10 @@ class ContactsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ContactsCell
         
-        cell.textLabel?.text = contacts[indexPath.row].name
+        let contact = contacts[indexPath.row]
+        cell.set(res: contact)
         
         return cell
     }
@@ -68,7 +67,5 @@ extension ContactsController: AddContactDelegate {  // protocol
 
             self.contacts.append(contact)
             self.tableView.reloadData()
-
     }
-
 }

@@ -97,7 +97,7 @@ class AddContactController : UIViewController {
                 throw SubmiError.fieldsCannotBeNull
             }
             
-            let contact = Contact(name: name, userName: lastName, phonr: phone, email: emial)
+            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial)
             delegate?.addContact(contact: contact)
             dismiss(animated: true)
             print(contact)
