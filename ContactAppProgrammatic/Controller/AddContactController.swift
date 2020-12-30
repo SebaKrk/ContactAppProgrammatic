@@ -68,10 +68,10 @@ class AddContactController : UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             sexLabel.text = " ♀ women"
-
+            
         case 1:
             sexLabel.text = " ♂︎ man"
-
+            
         default:
             return
         }
@@ -124,7 +124,7 @@ class AddContactController : UIViewController {
                   let emial = emailTF.text, emailTF.hasText,
                   let sex = sexLabel.text,
                   let country = countryLabel.text
-                
+            
             
             else {
                 throw SubmiError.fieldsCannotBeNull
@@ -235,11 +235,11 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return country[row]
     }
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            
-            countryLabel.text = country[row]
-    
-        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        countryLabel.text = country[row]
+        
+    }
     
     
 }

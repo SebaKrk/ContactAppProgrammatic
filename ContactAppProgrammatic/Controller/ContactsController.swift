@@ -45,7 +45,7 @@ class ContactsController: UITableViewController {
     }
     
     //    MARK: - TableView
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -64,8 +64,9 @@ class ContactsController: UITableViewController {
 
 extension ContactsController: AddContactDelegate {  // protocol
     func addContact(contact: Contact) {  
-
-            self.contacts.append(contact)
-            self.tableView.reloadData()
+        
+        self.contacts.append(contact)
+        
+        self.tableView.reloadData()
     }
 }
