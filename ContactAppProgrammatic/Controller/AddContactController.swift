@@ -120,7 +120,7 @@ class AddContactController : UIViewController {
         do {
             guard let name = nameTF.text,nameTF.hasText,
                   let lastName = userNameTF.text,userNameTF.hasText,
-                  let phone = phoneTF.text,phoneTF.hasText,
+                  let phone = Int(phoneTF.text ?? ""),phoneTF.hasText,
                   let emial = emailTF.text, emailTF.hasText,
                   let sex = sexLabel.text,
                   let country = countryLabel.text

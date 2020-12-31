@@ -99,7 +99,7 @@ class ContactsCell: UITableViewCell {
     func set(res : Contact) {
         nameLabel.text = res.name
         lastNameLabel.text = res.userName
-        phoneLabel.text = res.phone
+        phoneLabel.text = String(res.phone)
         emialLabel.text = res.email
         sexLabel.text = res.sex
         contactImage.image = res.sexImageM
