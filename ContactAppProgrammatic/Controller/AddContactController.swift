@@ -79,6 +79,7 @@ class AddContactController : UIViewController {
     @objc func handleImageButton() {
         print("image")
         showImagePickerController()
+        
     }
     
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
@@ -287,9 +288,16 @@ extension AddContactController: UIImagePickerControllerDelegate, UINavigationCon
     
     func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            contactImg.image = editingImage
+        }
+        dismiss(animated: true, completion: nil)
     }
     
 }
