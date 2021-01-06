@@ -78,6 +78,7 @@ class AddContactController : UIViewController {
     
     @objc func handleImageButton() {
         print("image")
+        showImagePickerController()
     }
     
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
@@ -278,7 +279,18 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
         countryLabel.text = country[row]
         
     }
+}
+
+// MARK: - ImagePicker
+
+extension AddContactController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func showImagePickerController() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
 }
 
