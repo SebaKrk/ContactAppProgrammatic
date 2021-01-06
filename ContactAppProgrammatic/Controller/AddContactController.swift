@@ -16,6 +16,28 @@ class AddContactController : UIViewController {
         return label
     }()
     
+    lazy var contactImg : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "DefaultProfileImage").withRenderingMode(.alwaysOriginal)
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 75
+        imageView.layer.masksToBounds = true
+        
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderWidth = 1
+        
+        return imageView
+    }()
+    
+    lazy var contactButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 75
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(handleImageButton), for: .touchUpInside)
+        return button
+    }()
+    
     let nameTF: UITextField = {
         let textField = UITextField()
         setUpTextField(textField, placeHolder: "Name", keyboardType: UIKeyboardType.default)
@@ -46,17 +68,17 @@ class AddContactController : UIViewController {
         return label
     }()
     
-    var sexImage : UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "man"))
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
     var sexSegmentControll : UISegmentedControl = {
         let sex = ["♀","♂︎"]
         let segment = UISegmentedControl(items: sex)
         segment.addTarget(self, action: #selector(handleSegmentControl(_:) ), for: .valueChanged)
         return segment
     }()
+//    MARK: - OBJC Func
+    
+    @objc func handleImageButton() {
+        print("image")
+    }
     
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
@@ -166,8 +188,22 @@ class AddContactController : UIViewController {
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        view.addSubview(contactImg)
+        contactImg.translatesAutoresizingMaskIntoConstraints = false
+        contactImg.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        contactImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        contactImg.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        contactImg.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        view.addSubview(contactButton)
+        contactButton.translatesAutoresizingMaskIntoConstraints = false
+        contactButton.centerXAnchor.constraint(equalTo: contactImg.centerXAnchor).isActive = true
+        contactButton.centerYAnchor.constraint(equalTo: contactImg.centerYAnchor).isActive = true
+        contactButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        contactButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
         view.addSubview(nameTF)
-        nameTF.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        nameTF.topAnchor.constraint(equalTo: contactImg.bottomAnchor, constant: 10).isActive = true
         setUpTextFieldConstrainst(textField: nameTF)
         
         view.addSubview(userNameTF)
