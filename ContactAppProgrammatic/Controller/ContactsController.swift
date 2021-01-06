@@ -62,6 +62,11 @@ class ContactsController: UITableViewController {
         let contact = contacts[indexPath.row]
         cell.set(res: contact)
         
+        if let imageData = contact.contactImg {
+            cell.contactImage.image = UIImage(data: imageData)
+        } else {
+            cell.contactImage.image = #imageLiteral(resourceName: "person")
+        }
         return cell
     }
     

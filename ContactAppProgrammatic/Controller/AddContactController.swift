@@ -74,7 +74,7 @@ class AddContactController : UIViewController {
         segment.addTarget(self, action: #selector(handleSegmentControl(_:) ), for: .valueChanged)
         return segment
     }()
-//    MARK: - OBJC Func
+    //    MARK: - OBJC Func
     
     @objc func handleImageButton() {
         print("image")
@@ -139,7 +139,8 @@ class AddContactController : UIViewController {
                   let phone = Int(phoneTF.text ?? ""),phoneTF.hasText,
                   let emial = emailTF.text, emailTF.hasText,
                   let sex = sexLabel.text,
-                  let country = countryLabel.text
+                  let country = countryLabel.text,
+                  let image = contactImg.image
             
             
             else {
@@ -153,6 +154,7 @@ class AddContactController : UIViewController {
             newContact.email = emial
             newContact.sex = sex
             newContact.country = country
+            newContact.contactImg = image.pngData()
             
             DBManger.share.saveContext()
             

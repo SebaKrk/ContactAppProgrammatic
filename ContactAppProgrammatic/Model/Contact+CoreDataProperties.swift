@@ -16,12 +16,13 @@ extension Contact {
         return NSFetchRequest<Contact>(entityName: "Contact")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var userName: String?
-    @NSManaged public var phone: String?
-    @NSManaged public var email: String?
-    @NSManaged public var sex: String?
     @NSManaged public var country: String?
+    @NSManaged public var email: String?
+    @NSManaged public var name: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var sex: String?
+    @NSManaged public var userName: String?
+    @NSManaged public var contactImg: Data?
 
 }
 
