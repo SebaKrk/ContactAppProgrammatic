@@ -13,7 +13,6 @@ class ContactsCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 16
-        //        view.backgroundColor = .green
         view.backgroundColor = UIColor.secondarySystemBackground
         view.clipsToBounds = true
         return view
@@ -33,7 +32,6 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "Woman"
         label.font = UIFont.boldSystemFont(ofSize: 14)
-//        label.backgroundColor = .red
         return label
     }()
     
@@ -41,7 +39,6 @@ class ContactsCell: UITableViewCell {
         let view = UIView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .cyan
         return view
     }()
     
@@ -49,7 +46,6 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "Name"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-//        label.backgroundColor = .red
         return label
     }()
     
@@ -57,7 +53,6 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "LastNamew"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-//        label.backgroundColor = .red
         return label
     }()
     
@@ -65,7 +60,6 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "999-333-222"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-//        label.backgroundColor = .red
         return label
     }()
     
@@ -73,13 +67,11 @@ class ContactsCell: UITableViewCell {
         let label = UILabel()
         label.text = "name@email.com"
         label.font = UIFont.boldSystemFont(ofSize: 16)
-//        label.backgroundColor = .red
         return label
     }()
     
     let countryImage : UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "pl"))
-//        image.backgroundColor = .blue
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 20
         image.clipsToBounds = true
@@ -99,10 +91,10 @@ class ContactsCell: UITableViewCell {
     func set(res : Contact) {
         nameLabel.text = res.name
         lastNameLabel.text = res.userName
-        phoneLabel.text = String(res.phone)
+        phoneLabel.text = String(res.phone!)
         emialLabel.text = res.email
         sexLabel.text = res.sex
-        contactImage.image = res.sexImageM
+//        contactImage.image = res.sexImageM
     }
     
     //    MARK: - SetUpConstraints

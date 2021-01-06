@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932407D825A58239007FB0DA /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932407D625A58239007FB0DA /* Contact+CoreDataClass.swift */; };
+		932407D925A58239007FB0DA /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932407D725A58239007FB0DA /* Contact+CoreDataProperties.swift */; };
 		936E4494259C652900FC25DC /* ContactAppProgrammatic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 936E4492259C652900FC25DC /* ContactAppProgrammatic.xcdatamodeld */; };
 		93B633AA25925F2D008B8A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633A925925F2D008B8A13 /* AppDelegate.swift */; };
 		93B633AC25925F2D008B8A13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633AB25925F2D008B8A13 /* SceneDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932407D625A58239007FB0DA /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		932407D725A58239007FB0DA /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		936E4493259C652900FC25DC /* ContactAppProgrammatic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactAppProgrammatic.xcdatamodel; sourceTree = "<group>"; };
 		93B633A625925F2D008B8A13 /* ContactAppProgrammatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactAppProgrammatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B633A925925F2D008B8A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 		93B633C025925F46008B8A13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				932407D625A58239007FB0DA /* Contact+CoreDataClass.swift */,
+				932407D725A58239007FB0DA /* Contact+CoreDataProperties.swift */,
 				93B633C92592605F008B8A13 /* Contact.swift */,
 			);
 			path = Model;
@@ -172,9 +178,11 @@
 				93B633CD259260BA008B8A13 /* AddContactController.swift in Sources */,
 				936E4494259C652900FC25DC /* ContactAppProgrammatic.xcdatamodeld in Sources */,
 				93B633C72592604B008B8A13 /* ContactsCell.swift in Sources */,
+				932407D925A58239007FB0DA /* Contact+CoreDataProperties.swift in Sources */,
 				93B633AA25925F2D008B8A13 /* AppDelegate.swift in Sources */,
 				93B633CA2592605F008B8A13 /* Contact.swift in Sources */,
 				93B633C42592601F008B8A13 /* ContactsController.swift in Sources */,
+				932407D825A58239007FB0DA /* Contact+CoreDataClass.swift in Sources */,
 				93B633AC25925F2D008B8A13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
