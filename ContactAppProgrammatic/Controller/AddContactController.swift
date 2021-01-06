@@ -78,7 +78,7 @@ class AddContactController : UIViewController {
     
     @objc func handleImageButton() {
         print("image")
-        showImagePickerController()
+        showChoseSourceAlertController()
         
     }
     
@@ -86,10 +86,8 @@ class AddContactController : UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             sexLabel.text = " ♀ women"
-            
         case 1:
             sexLabel.text = " ♂︎ man"
-            
         default:
             return
         }
@@ -286,16 +284,34 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension AddContactController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func showImagePickerController() {
+    func showChoseSourceAlertController() {
+        let photoLibraryAction = UIAlertAction(title: "chose photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        let cameraAction = UIAlertAction(title: "take new photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+        }
+        let cancleAction = UIAlertAction(title: "cancle", style: .cancel, handler: nil)
+        
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(photoLibraryAction)
+        sheet.addAction(cameraAction)
+        sheet.addAction(cancleAction)
+        
+        present(sheet, animated: true, completion: nil)
+    }
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.sourceType = sourceType
         present(imagePickerController, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             contactImg.image = editingImage
+        } else if let orignialImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            contactImg.image = orignialImage
         }
         dismiss(animated: true, completion: nil)
     }
