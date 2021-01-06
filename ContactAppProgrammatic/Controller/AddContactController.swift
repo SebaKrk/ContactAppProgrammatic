@@ -7,13 +7,7 @@
 
 import UIKit
 
-//protocol AddContactDelegate {  // protocol
-//    func addContact(contact: Contact)
-//}
-
 class AddContactController : UIViewController {
-    
-//    var delegate: AddContactDelegate?  // protocol
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -130,10 +124,18 @@ class AddContactController : UIViewController {
                 throw SubmiError.fieldsCannotBeNull
             }
             
-//            let contact = Contact(name: name, userName: lastName, phone: phone, email: emial, sex: sex, country: country)
-//            delegate?.addContact(contact: contact)
+            let newContact = Contact(context: DBManger.share.context)
+            newContact.name = name
+            newContact.userName = lastName
+            newContact.phone = String(phone)
+            newContact.email = emial
+            newContact.sex = sex
+            newContact.country = country
+            
+            DBManger.share.saveContext()
+            
             dismiss(animated: true)
-//            print(contact)
+            print(newContact)
             
         } catch {
             let alertController = UIAlertController(title: "Error", message: "Please fill the details correctly", preferredStyle: .alert) // or .actionSheet

@@ -17,7 +17,6 @@
 		93B633B625925F32008B8A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B633B425925F32008B8A13 /* LaunchScreen.storyboard */; };
 		93B633C42592601F008B8A13 /* ContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633C32592601F008B8A13 /* ContactsController.swift */; };
 		93B633C72592604B008B8A13 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633C62592604B008B8A13 /* ContactsCell.swift */; };
-		93B633CA2592605F008B8A13 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633C92592605F008B8A13 /* Contact.swift */; };
 		93B633CD259260BA008B8A13 /* AddContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B633CC259260BA008B8A13 /* AddContactController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		93B633B725925F32008B8A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93B633C32592601F008B8A13 /* ContactsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsController.swift; sourceTree = "<group>"; };
 		93B633C62592604B008B8A13 /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
-		93B633C92592605F008B8A13 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		93B633CC259260BA008B8A13 /* AddContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +102,6 @@
 			children = (
 				932407D625A58239007FB0DA /* Contact+CoreDataClass.swift */,
 				932407D725A58239007FB0DA /* Contact+CoreDataProperties.swift */,
-				93B633C92592605F008B8A13 /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +181,6 @@
 				932407D925A58239007FB0DA /* Contact+CoreDataProperties.swift in Sources */,
 				93B633AA25925F2D008B8A13 /* AppDelegate.swift in Sources */,
 				932407DC25A58384007FB0DA /* DBManager.swift in Sources */,
-				93B633CA2592605F008B8A13 /* Contact.swift in Sources */,
 				93B633C42592601F008B8A13 /* ContactsController.swift in Sources */,
 				932407D825A58239007FB0DA /* Contact+CoreDataClass.swift in Sources */,
 				93B633AC25925F2D008B8A13 /* SceneDelegate.swift in Sources */,

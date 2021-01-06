@@ -21,6 +21,11 @@ class ContactsController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        contacts = DBManger.share.fetchContact()
+        tableView.reloadData()
+    }
+    
     //    MARK: - BarButtonItem
     
     func setUpBarbuttonItem() {
@@ -29,7 +34,6 @@ class ContactsController: UITableViewController {
     @objc func hanldeAddButton() {
         
         let controller = AddContactController()
-//        controller.delegate = self // protocol
         let rootVC = controller
         let navVC = UINavigationController(rootViewController: rootVC)
         navVC.modalPresentationStyle = .fullScreen
@@ -61,12 +65,3 @@ class ContactsController: UITableViewController {
         return cell
     }
 }
-
-//extension ContactsController: AddContactDelegate {  // protocol
-//    func addContact(contact: Contact) {
-//
-//        self.contacts.append(contact)
-//
-//        self.tableView.reloadData()
-//    }
-//}
