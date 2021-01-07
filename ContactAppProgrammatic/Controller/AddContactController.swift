@@ -85,9 +85,9 @@ class AddContactController : UIViewController {
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            sexLabel.text = " ♀ women"
+            sexLabel.text = "♀ women "
         case 1:
-            sexLabel.text = " ♂︎ man"
+            sexLabel.text = " ♂︎ man "
         default:
             return
         }

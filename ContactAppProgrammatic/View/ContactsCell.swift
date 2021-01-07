@@ -73,9 +73,16 @@ class ContactsCell: UITableViewCell {
     let countryImage : UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "pl"))
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 20
+        image.layer.cornerRadius = 15
         image.clipsToBounds = true
         return image
+    }()
+    
+    let countrylLabel : UILabel = {
+        let label = UILabel()
+        label.text = "PL"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        return label
     }()
     //    MARK: INIT
     
@@ -94,6 +101,7 @@ class ContactsCell: UITableViewCell {
         phoneLabel.text = String(res.phone!)
         emialLabel.text = res.email
         sexLabel.text = res.sex
+        countrylLabel.text = res.country
 //        contactImage.image = res.sexImageM
     }
     
@@ -152,9 +160,13 @@ class ContactsCell: UITableViewCell {
         countryImage.translatesAutoresizingMaskIntoConstraints = false
         countryImage.centerYAnchor.constraint(equalTo: backgroundCard.centerYAnchor).isActive = true
         countryImage.trailingAnchor.constraint(equalTo: backgroundCard.trailingAnchor, constant: -5).isActive = true
-        countryImage.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        countryImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        countryImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        countryImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
+        addSubview(countrylLabel)
+        countrylLabel.translatesAutoresizingMaskIntoConstraints = false
+        countrylLabel.topAnchor.constraint(equalTo: countryImage.bottomAnchor,constant: 5).isActive = true
+        countrylLabel.centerXAnchor.constraint(equalTo: countryImage.centerXAnchor).isActive = true
     }
     
 }
