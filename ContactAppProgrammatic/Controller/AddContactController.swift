@@ -27,7 +27,7 @@ class AddContactController : UIViewController {
         imageView.layer.borderWidth = 1
         
         return imageView
-    }()
+    }() 
     
     lazy var contactButton : UIButton = {
         let button = UIButton(type: .system)
@@ -62,8 +62,7 @@ class AddContactController : UIViewController {
         return textField
     }()
     
-    let country = ["AT","BE","BG","PL"]
-//    ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
+    let country = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
     
     var countryPicker: UIPickerView = {
         let picker = UIPickerView()
