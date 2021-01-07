@@ -69,17 +69,51 @@ class ContactsController: UITableViewController {
             cell.contactImage.image = #imageLiteral(resourceName: "person")
             cell.countryImage.image = #imageLiteral(resourceName: "non")
         }
-        
-
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            DBManger.share.context.delete(contacts[indexPath.row])
-            DBManger.share.saveContext()
-            contacts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                DBManger.share.context.delete(contacts[indexPath.row])
+                DBManger.share.saveContext()
+                contacts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
+        
+    private func edit(rowIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "edit") { (_, _, _) in
+            
+            let alert = UIAlertController(title: "Warning", message: "Do You want to Edit", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes - maybe later", style: .default)
+            let noAction = UIAlertAction(title: "No - thank you", style: .default)
+            noAction.setValue(UIColor.red, forKey: "titleTextColor")
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        return action
+    }
+    
+    private func mail(rowIndexpath indexPath: IndexPath) -> UIContextualAction {
+
+        let action =  UIContextualAction(style: .normal, title: "mail") { (_, _, _) in
+            print("send mail to: \(String(self.contacts[indexPath.row].email!)) ")
+        }
+        
+        return action
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = self.edit(rowIndexPath: indexPath)
+        edit.backgroundColor = .systemYellow
+        let mail = self.mail(rowIndexpath: indexPath)
+        mail.backgroundColor = .systemBlue
+        let swipe = UISwipeActionsConfiguration(actions: [edit,mail])
+        
+        return swipe
+        
     }
 }
