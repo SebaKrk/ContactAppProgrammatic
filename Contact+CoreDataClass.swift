@@ -2,7 +2,7 @@
 //  Contact+CoreDataClass.swift
 //  ContactAppProgrammatic
 //
-//  Created by Sebastian Sciuba on 06/01/2021.
+//  Created by Sebastian Sciuba on 07/01/2021.
 //
 //
 

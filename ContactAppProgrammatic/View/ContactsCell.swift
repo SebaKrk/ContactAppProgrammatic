@@ -71,7 +71,7 @@ class ContactsCell: UITableViewCell {
     }()
     
     let countryImage : UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "pl"))
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 15
         image.clipsToBounds = true

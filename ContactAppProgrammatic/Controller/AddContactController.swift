@@ -62,6 +62,26 @@ class AddContactController : UIViewController {
         return textField
     }()
     
+    let country = ["AT","BE","BG","PL"]
+//    ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
+    
+    var countryPicker: UIPickerView = {
+        let picker = UIPickerView()
+        return picker
+    }()
+    
+    var countryLabel : UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let countryImage : UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 15
+        image.clipsToBounds = true
+        return image
+    }()
     var sexLabel : UILabel = {
         let label = UILabel()
         label.text = ""
@@ -74,12 +94,12 @@ class AddContactController : UIViewController {
         segment.addTarget(self, action: #selector(handleSegmentControl(_:) ), for: .valueChanged)
         return segment
     }()
+    
     //    MARK: - OBJC Func
     
     @objc func handleImageButton() {
         print("image")
         showChoseSourceAlertController()
-        
     }
     
     @objc func handleSegmentControl(_ segmentedControl: UISegmentedControl) {
@@ -93,17 +113,7 @@ class AddContactController : UIViewController {
         }
     }
     
-    let country = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","GR","ES","IE","LT","LU","LV","MT","NL","DE","PL","PT","RO","SK","SI","SE","HU","GB","IT"]
     
-    var countryPicker: UIPickerView = {
-        let picker = UIPickerView()
-        return picker
-    }()
-    
-    var countryLabel : UILabel = {
-        let label = UILabel()
-        return label
-    }()
     
     //    MARK: - VieDidLoad
     
@@ -140,6 +150,7 @@ class AddContactController : UIViewController {
                   let emial = emailTF.text, emailTF.hasText,
                   let sex = sexLabel.text,
                   let country = countryLabel.text,
+                  let countryImg = countryImage.image,
                   let image = contactImg.image
             
             
@@ -155,6 +166,7 @@ class AddContactController : UIViewController {
             newContact.sex = sex
             newContact.country = country
             newContact.contactImg = image.pngData()
+            newContact.countryImg = countryImg.pngData()
             
             DBManger.share.saveContext()
             
@@ -278,6 +290,7 @@ extension AddContactController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         countryLabel.text = country[row]
+        countryImage.image = UIImage(named: country[row])
         
     }
 }

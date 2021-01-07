@@ -67,6 +67,12 @@ class ContactsController: UITableViewController {
         } else {
             cell.contactImage.image = #imageLiteral(resourceName: "person")
         }
+        
+        if let countryImgData = contact.countryImg {
+            cell.countryImage.image = UIImage(data: countryImgData)
+        } else {
+            cell.countryImage.image = #imageLiteral(resourceName: "non")
+        }
         return cell
     }
     
